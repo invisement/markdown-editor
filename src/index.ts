@@ -9,6 +9,8 @@ import keybindings from "./lib/keybindings.ts";
 import initUndo from "./lib/undo.ts";
 import setCaret from "./utils/setCaret.ts";
 
+import "./style.css";
+
 export class PocketEditor {
   container: HTMLElement;
   lines: HTMLElement[];
@@ -30,7 +32,7 @@ export class PocketEditor {
    * This creates an editor.
    * You might also need to add the basic styling with "style.css"
    *
-   * @param {string} selector The selector of the parent in which to put the editor
+   * @param {HTMLDivElement} wrapper The element of the parent in which to put the editor
    * @param {Object} [options] Pocket editor options
    * @param {string} [options.text] Default text to add when initializing pocket editor
    * @param {string} [options.id] Specify an id for this instance of the editor
@@ -40,7 +42,7 @@ export class PocketEditor {
    * import pocketEditor from 'pocket-editor'
    * import 'pocket-editor/style.css'
    *
-   * const editor = new pocketEditor("some-selector", { text: "Hello world" })
+   * const editor = new pocketEditor(div, { text: "Hello world" })
    */
   constructor(wrapper: HTMLDivElement, options?: Options) {
     const div = document.createElement("div");
@@ -51,7 +53,7 @@ export class PocketEditor {
     this.lines = [];
 
     if (this.wrapper === null) {
-      throw `Pocket editor: selector "${wrapper}" was not found`;
+      throw `Pocket editor: wrapper "${wrapper}" was not found`;
     }
 
     if (id) {

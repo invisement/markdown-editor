@@ -3,6 +3,6 @@
 		"lib": ["dom", "es2022"]
 	},
 	"name": "@invisement/markdown-editor",
-	"version": "1.0.1",
-	"exports": "./mod.ts"
+	"version": "1.0.2",
+	"exports": ["./mod.ts", "./browser/markdown-editor.js"]
 }

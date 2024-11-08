@@ -1,4 +1,5 @@
 deno.lock
+dist
 
 
 # Logs
@@ -12,7 +13,6 @@ lerna-debug.log*
 
 coverage
 node_modules
-dist
 dist-ssr
 *.local
 
