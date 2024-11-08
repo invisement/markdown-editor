@@ -9,8 +9,6 @@ import keybindings from "./lib/keybindings.ts";
 import initUndo from "./lib/undo.ts";
 import setCaret from "./utils/setCaret.ts";
 
-import "./style.css";
-
 export class PocketEditor {
   container: HTMLElement;
   lines: HTMLElement[];
