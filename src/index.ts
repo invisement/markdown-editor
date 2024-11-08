@@ -1,13 +1,13 @@
-import { copyEvent, cutEvent, pasteEvent } from "./lib/clipboardControl";
-import { toHTML, toMarkdown } from "./lib/contentControl";
-import paragraphControl from "./lib/paragraphControl";
-import lineTransform from "./lib/lineTransform";
-import lineSelection from "./lib/lineSelection";
-import lineDeletion from "./lib/lineDeletion";
-import caretControl from "./lib/caretControl";
-import keybindings from "./lib/keybindings";
-import initUndo from "./lib/undo";
-import setCaret from "./utils/setCaret";
+import { copyEvent, cutEvent, pasteEvent } from "./lib/clipboardControl.ts";
+import { toHTML, toMarkdown } from "./lib/contentControl.ts";
+import paragraphControl from "./lib/paragraphControl.ts";
+import lineTransform from "./lib/lineTransform.ts";
+import lineSelection from "./lib/lineSelection.ts";
+import lineDeletion from "./lib/lineDeletion.ts";
+import caretControl from "./lib/caretControl.ts";
+import keybindings from "./lib/keybindings.ts";
+import initUndo from "./lib/undo.ts";
+import setCaret from "./utils/setCaret.ts";
 
 export class PocketEditor {
   container: HTMLElement;
@@ -42,15 +42,16 @@ export class PocketEditor {
    *
    * const editor = new pocketEditor("some-selector", { text: "Hello world" })
    */
-  constructor(div: HTMLDivElement, options?: Options) {
+  constructor(wrapper: HTMLDivElement, options?: Options) {
+    const div = document.createElement("div");
     const { text, defer, id } = options ?? {};
 
-    this.wrapper = document.querySelector(selector);
+    this.wrapper = wrapper;
     this.container = div;
     this.lines = [];
 
     if (this.wrapper === null) {
-      throw `Pocket editor: selector "${selector}" was not found`;
+      throw `Pocket editor: selector "${wrapper}" was not found`;
     }
 
     if (id) {
@@ -113,7 +114,7 @@ export class PocketEditor {
    * Gets the editor content as Markdown
    * @returns A valid markdown string
    */
-  get value() {
+  get value(): string {
     return toMarkdown(this.lines);
   }
 
@@ -253,7 +254,7 @@ export class PocketEditor {
     );
   }
 
-  public createLine(props?: { text?: string; modif?: string }) {
+  public createLine(props?: { text?: string; modif?: string }): HTMLDivElement {
     const notesline = document.createElement("div");
     const editable = document.createElement("p");
     const mod = props?.modif ?? "";
@@ -283,15 +284,10 @@ export class PocketEditor {
 
 export default PocketEditor;
 
+// @ts-ignore this is for browser
 globalThis.PocketEditor = PocketEditor;
 
 // Types
-
-declare global {
-  var PocketEditor: _PocketEditor;
-}
-
-type _PocketEditor = typeof PocketEditor;
 
 type Options = {
   id?: string;
