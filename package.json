@@ -4,16 +4,15 @@
 	"version": "2.3.0",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
-	"author": "Victor Azevedo (https://victr.me)",
+	"author": "Victor Azevedo (https://victr.me) and Ali Khosro",
 	"license": "MIT",
 	"type": "module",
 	"repository": {
-		"url": "git+ssh://git@github.com/victrme/pocket-editor.git"
+		"url": "git@github.com:invisement/markdown-editor.git"
 	},
 	"keywords": [
-		"wysiwyg",
-		"contenteditable",
-		"text editor",
+		"markdown",
+		"markdown editor",
 		"rich text"
 	],
 	"scripts": {

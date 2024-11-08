@@ -904,8 +904,7 @@
      *
      * const editor = new pocketEditor("some-selector", { text: "Hello world" })
      */
-    constructor(selector, options) {
-      const div = document.createElement("div");
+    constructor(div, options) {
       const { text, defer, id } = options ?? {};
       this.wrapper = document.querySelector(selector);
       this.container = div;
