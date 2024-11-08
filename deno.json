@@ -4,5 +4,8 @@
 	},
 	"name": "@invisement/markdown-editor",
 	"version": "1.0.2",
-	"exports": ["./mod.ts", "./browser/markdown-editor.js"]
+	"exports": {
+		".":"./mod.ts", 
+		"./markdown-editor": "./browser/markdown-editor.js"
+	}
 }
