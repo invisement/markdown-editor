@@ -42,7 +42,7 @@ class PocketEditor {
 	 *
 	 * const editor = new pocketEditor("some-selector", { text: "Hello world" })
 	 */
-	constructor(selector: string, options?: Options) {
+	constructor(div: HTMLDivElement, options?: Options) {
 		const div = document.createElement("div")
 		const { text, defer, id } = options ?? {}
 
