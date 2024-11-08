@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"lib": ["dom", "es2022"]
 	},
-	"name": "@invisement/market-editor",
+	"name": "@invisement/markdown-editor",
 	"version": "1.0.1",
 	"exports": "./mod.ts"
 }
